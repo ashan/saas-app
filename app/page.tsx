@@ -1,13 +1,45 @@
+import CompanionCard from '@/components/CompanionCard';
+import CompanionsList from '@/components/CompanionsList';
+import CTA from '@/components/CTA';
 import { Button } from '@/components/ui/button';
 import React from 'react';
 
-const Page = () => {
+const HomePage = () => {
   return (
-    <div>
-      <h1 className="text-2xl underline">Welcome to my SaaS App</h1>
-      <Button>Click me</Button>
-    </div>
+    <main>
+      <h1 className="text-2xl underline">Popular Comapnions</h1>
+      <section className="home-section">
+        <CompanionCard
+          id="123"
+          name="Neura the Brainy Explorer"
+          subject="science"
+          topic="Neural Network of the Brain"
+          duration={45}
+          color="#ffda6a"
+        />
+        <CompanionCard
+          id="456"
+          name="Countsy the Number Wizard"
+          subject="maths"
+          topic="Derivatives and Integrals"
+          duration={30}
+          color="#b050af"
+        />
+        <CompanionCard
+          id="789"
+          name="Verba the Vocabulary Builder"
+          subject="language"
+          topic="English Literature"
+          duration={30}
+          color="#bde7ff"
+        />
+      </section>
+      <section className="home-section">
+        <CompanionsList />
+        <CTA />
+      </section>
+    </main>
   );
 };
 
-export default Page;
+export default HomePage;
