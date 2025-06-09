@@ -39,6 +39,7 @@ const CompanionForm = () => {
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    mode: 'onTouched',
     defaultValues: {
       name: '',
       subject: '',
@@ -94,7 +95,9 @@ const CompanionForm = () => {
               <FormLabel>Subject</FormLabel>
               <FormControl>
                 <Select
-                  onValueChange={field.onChange}
+                  onValueChange={(value) => {
+                    field.onChange(value);
+                   }}
                   value={field.value}
                   defaultValue={field.value}
                 >
